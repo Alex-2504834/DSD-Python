@@ -31,6 +31,7 @@ def BMI():
     except ValueError or TypeError:
         print(f"\033[31mEnter A Numbers\033[0m")
 
+
 def dosage():
     import os
     MAXDOSAGE = 5
@@ -54,5 +55,49 @@ def dosage():
             print(f"\033[0;31mPatient is over the max dose......\033[0m")
             alive = False
 
-def medicalBilling():
-    pass
+
+def menu():
+    import time
+    import os
+    menu = True
+
+    while menu:
+        os.system("cls")
+        userinput = int(input("Select which task to run\n1: TaskOne\n2: BMI\n3: dosage\n4: exit\nEnter A Number: "))
+        if userinput == 1:
+            print("Running: taskOne()")
+            time.sleep(1)
+            os.system("cls")
+            taskOne()
+            menu = False
+
+        elif userinput == 2:
+            print("Running: BMI()")
+            time.sleep(1)
+            os.system("cls")
+            BMI()
+            menu = False
+
+        elif userinput == 3:
+            print("Running: dosage()")
+            time.sleep(1)
+            os.system("cls")
+            dosage()
+            menu = False
+
+        elif userinput == 4:
+            print("Bye!")
+            time.sleep(1)
+            os.system("cls")
+            menu = False
+        else: 
+            os.system("cls")
+            print("Please enter a number from 1 - 4")
+            time.sleep(1)
+            
+
+if __name__ == "__main__":
+    try:
+        menu()
+    except:
+        print("Something went wrong")
