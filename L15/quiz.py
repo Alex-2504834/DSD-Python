@@ -1,11 +1,10 @@
-
+#! later add type: choise
 quiz = {"music": {
-    "type": "music",
+    "type": "direct",
     "name": "Music Quiz",
     "questions": {
         1: {"queston": "",
             "answers": []}
-
 }}}
 
 
