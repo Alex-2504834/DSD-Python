@@ -1,0 +1,128 @@
+{
+  "animal": {
+    "name": "<colour:#4efc03><bold>Animal Quiz</></>",
+    "questions": {
+      "1": {
+        "type": "multiple",
+        "question": "<bold>Though they sound happy, what animal's \"laugh\" is a reaction to being threatened?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Ox</>",
+          "B": "<colour:#ff66c4>Baboon</>",
+          "C": "<colour:#90ee90>Woodpecker</>",
+          "D": "<colour:#ffa24c>Hyena</>"
+        },
+        "correctAnswers": ["D"]
+      },
+      "2": {
+        "type": "multiple",
+        "question": "<bold>Capable of exceeding 186 miles per hour, what is the fastest creature in the animal kingdom?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Cheetah</>",
+          "B": "<colour:#ff66c4>Peregrine Falcon</>",
+          "C": "<colour:#90ee90>Horse Fly</>",
+          "D": "<colour:#ffa24c>Black Marlin</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "3": {
+        "type": "multiple",
+        "question": "<bold>Known for its intelligence, which dog breed has been found capable of understanding more than a thousand words?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Cocker Spaniel</>",
+          "B": "<colour:#ff66c4>Dachshund</>",
+          "C": "<colour:#90ee90>Border Collie</>",
+          "D": "<colour:#ffa24c>French Bulldog</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "4": {
+        "type": "multiple",
+        "question": "<bold>Which animal species can live in extremes of both heat and cold, from -28.8 °C to 48.8 °C?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Bactrian Camel</>",
+          "B": "<colour:#ff66c4>Chuckwalla Iguanas</>",
+          "C": "<colour:#90ee90>Polar Bear</>",
+          "D": "<colour:#ffa24c>Emperor Pengiun</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "5": {
+        "type": "multiple",
+        "question": "<bold>The tiniest animal with a backbone is a what?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Fish</>",
+          "B": "<colour:#ff66c4>Frog</>",
+          "C": "<colour:#90ee90>Bird</>",
+          "D": "<colour:#ffa24c>Lizard</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "6": {
+        "type": "multiple",
+        "question": "<bold>Growing up to 59 feet (18 meters) long, which is the world's largest living fish?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Manta Ray</>",
+          "B": "<colour:#ff66c4>Marlin</>",
+          "C": "<colour:#90ee90>Whale Shark</>",
+          "D": "<colour:#ffa24c>Sailfish</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "7": {
+        "type": "multiple",
+        "question": "<bold>Which of these “fish” is actually a fish?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Crayfish</>",
+          "B": "<colour:#ff66c4>Jellyfish</>",
+          "C": "<colour:#90ee90>Swordfish</>",
+          "D": "<colour:#ffa24c>Starfish</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "8": {
+        "type": "multiple",
+        "question": "<bold><underlineThe largest “town” home to what animal was an underground colony measuring 25,000 square miles, found in Texas?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Meerkat</>",
+          "B": "<colour:#ff66c4>Prairie Dog</>",
+          "C": "<colour:#90ee90>Capybara</>",
+          "D": "<colour:#ffa24c>Beaver</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "9": {
+        "type": "multiple",
+        "question": "<bold>An individual animal of which type was found to be at least 272 years old, suggesting that its type includes the world's longest-living vertebrate?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Japanese Wagyu Cattle</>",
+          "B": "<colour:#ff66c4>Indian Elephant</>",
+          "C": "<colour:#90ee90>Galapagos Tortoise</>",
+          "D": "<colour:#ffa24c>Greenland Shark</>"
+        },
+        "correctAnswers": ["D"]
+      },
+      "10": {
+        "type": "multiple",
+        "question": "<bold>What gives flamingos their pink color?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Reaction To Sunlight</>",
+          "B": "<colour:#ff66c4>Mud Captured In Feathers</>",
+          "C": "<colour:#90ee90>Eating Shrimp</>",
+          "D": "<colour:#ffa24c>Dominant Genes</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "11": {
+        "type": "multiple",
+        "question": "<bold>A rattlesnake's rattle is made of the same material as what human body part?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Teeth</>",
+          "B": "<colour:#ff66c4>Bone</>",
+          "C": "<colour:#90ee90>Fingernail</>",
+          "D": "<colour:#ffa24c>Earlobe</>"
+        },
+        "correctAnswers": ["C"]
+      }
+    }
+  }
+}
