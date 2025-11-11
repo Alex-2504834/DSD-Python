@@ -264,5 +264,87 @@
         "correctAnswers": ["C"]
       }
     }
+  },
+  "periodicTable": {
+    "name": "Periodic Table",
+    "questions": {
+      "1": {
+        "type": "multiple",
+        "question": "<bold>The elements in group I have similar chemical properties because</>",
+        "options": {
+          "A": "<colour:#00d2ff>They all have a single electron in their outer shell.</>",
+          "B": "<colour:#ff66c4>They all react with water.</>",
+          "C": "<colour:#90ee90>They are all metals.</>",
+          "D": "<colour:#ffa24c>They all look similar.</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "2": {
+        "type": "multiple",
+        "question": "<bold>Which one of these elements is a non-metal?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Na</>",
+          "B": "<colour:#ff66c4>Be</>",
+          "C": "<colour:#90ee90>S</>",
+          "D": "<colour:#ffa24c>Al</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "3": {
+        "type": "multiple",
+        "question": "<bold>Which one of the following metals is a liquid at room temperature?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Calcium</>",
+          "B": "<colour:#ff66c4>Mercury</>",
+          "C": "<colour:#90ee90>Aluminium</>",
+          "D": "<colour:#ffa24c>Sodium</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "4": {
+        "type": "multiple",
+        "question": "<bold>Potassium is a metal which floats on water. What is the principal reason for not using it in the manufacture of ships?</>",
+        "options": {
+          "A": "<colour:#00d2ff>It is a very rare metal.</>",
+          "B": "<colour:#ff66c4>It is a soft metal.</>",
+          "C": "<colour:#90ee90>It is highly reactive with water.</>",
+          "D": "<colour:#ffa24c>It is very expensive.</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "5": {
+        "type": "multiple",
+        "question": "<bold>Each element in the periodic table is assigned a number called the atomic number. This is equal to</>",
+        "options": {
+          "A": "<colour:#00d2ff>the number of protons in each atom of that element.</>",
+          "B": "<colour:#ff66c4>the number of protons plus the number of electrons electrons in each atom of that element.</>",
+          "C": "<colour:#90ee90>the number of neutrons in each atom of that element.</>",
+          "D": "<colour:#ffa24c>the number of protons and neutrons in each atom of that element.</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "6": {
+        "type": "multiple",
+        "question": "<bold>Which one of the following elements is used in computer chips?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Chlorine.</>",
+          "B": "<colour:#ff66c4>Silicon.</>",
+          "C": "<colour:#90ee90>Silver.</>",
+          "D": "<colour:#ffa24c>Neon.</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "7": {
+        "type": "multiple",
+        "question": "<bold>A carbon atom with a mass number of 14 is often called carbon-14 or C-14. If its atomic number is 6, How many protons and neutrons does it have?</>",
+        "options": {
+          "A": "<colour:#00d2ff>6 protons and 8 neutrons</>",
+          "B": "<colour:#ff66c4>6 protons and 14 neutrons</>",
+          "C": "<colour:#90ee90>6 protons and 6 neutrons</>",
+          "D": "<colour:#ffa24c>8 protons and 6 neutrons</>"
+        },
+        "correctAnswers": ["A"]
+      }
+    }
   }
 }
