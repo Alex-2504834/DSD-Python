@@ -81,7 +81,7 @@
       },
       "8": {
         "type": "multiple",
-        "question": "<bold><underlineThe largest “town” home to what animal was an underground colony measuring 25,000 square miles, found in Texas?</>",
+        "question": "<bold>The largest “town” home to what animal was an underground colony measuring 25,000 square miles, found in Texas?</>",
         "options": {
           "A": "<colour:#00d2ff>Meerkat</>",
           "B": "<colour:#ff66c4>Prairie Dog</>",
@@ -178,7 +178,7 @@
         "options": {
           "A": "<colour:#00d2ff>Poland's song is called \"Mila\"</>",
           "B": "<colour:#ff66c4>Bulgaria, Moldova and Hungary did not participate</>",
-          "C": "<colour:#90ee90>Montenegro</>",
+          "C": "<colour:#90ee90>Montenegro participated after a 9-year absence</>",
           "D": "<colour:#ffa24c>Yuval Raphael has participated in Eurovision before 2025</>"
         },
         "correctAnswers": ["B"]
@@ -225,6 +225,41 @@
           "C": "<colour:#90ee90>A singer who represented Australia</>",
           "D": "<colour:#ffa24c>The winner of Festival da Canção 2025</>",
           "E": "<colour:#ffa24c>None of the above</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "10": {
+        "type": "multiple",
+        "question": "<bold>How many countries were pre-qualified for the Grand Final in 2025?</>",
+        "options": {
+          "A": "<colour:#00d2ff>4</>",
+          "B": "<colour:#ff66c4>5</>",
+          "C": "<colour:#90ee90>6</>",
+          "D": "<colour:#ffa24c>7</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "11": {
+        "type": "multiple",
+        "question": "<bold>____ is a countertenor who was born in Vienna and grew up in Dubai</>",
+        "options": {
+          "A": "<colour:#00d2ff>JJ</>",
+          "B": "<colour:#ff66c4>Red Sebastian</>",
+          "C": "<colour:#90ee90>Adonxs</>",
+          "D": "<colour:#ffa24c>Klemen</>",
+          "E": "<colour:#ffa24c>Princ</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "12": {
+        "type": "multiple",
+        "question": "<bold>How many countries qualified for the Grand Final from each of the two Semi-finals?</>",
+        "options": {
+          "A": "<colour:#00d2ff>8</>",
+          "B": "<colour:#ff66c4>9</>",
+          "C": "<colour:#90ee90>10</>",
+          "D": "<colour:#ffa24c>11</>",
+          "E": "<colour:#ffa24c>12</>"
         },
         "correctAnswers": ["C"]
       }

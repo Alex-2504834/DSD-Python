@@ -5,7 +5,7 @@ import time
 #? REEEEEEE (Regex)
 import re
 import json
-import pathlib  #? i touch grass (files)
+import pathlib
 
 from dataclasses import dataclass, field
 #? why do are these not accessable by defualt, wha the bjnfdjnb python, thought i was going insane
