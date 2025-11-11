@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Any, Tuple, Optional
 
 #? path to the json (full path)
-bigJsonPath: str = ""
+bigJsonPath: str = "/home/hyper/Documents/College/GitHub/DSD-Python/L15/QUIZ/quiz.json"
 
 #?Whole lot of helpers
 def clearConsoleScreen() -> None:
@@ -272,40 +272,7 @@ def mergeQuizzesInPlace(source: Dict[str, QuizEntry], target: Dict[str, QuizEntr
 
 #?built in quiz, this can be nuked later one maybe
 
-rawQuizData: Dict[str, Dict[str, Any]] = {
-	"music": {
-		"name": "<colour:#00d2ff><bold>Music Quiz</></>",
-		"questions": {
-			1: {
-				"type": "multiple",
-				"question": "Who wrote <italic>Bohemian Rhapsody?</>",
-				"options": {
-					"A": "<bgcolour:#222222><colour:#00ff88>Freddie Mercury<></>",
-					"B": "John Lennon",
-					"C": "Paul McCartney",
-					"D": "David Bowie",
-				},
-				"correctAnswers": ["A"],
-			},
-			2: {
-				"type": "multiple",
-				"question": "Which two are members of The Beatles? (choose two)",
-				"options": {
-					"A": "John Lennon",
-					"B": "Freddie Mercury",
-					"C": "Paul McCartney",
-					"D": "Kurt Cobain",
-				},
-				"correctAnswers": ["A", "C"],
-			},
-			3: {
-				"type": "direct",
-				"question": "What instrument has black and white keys?",
-				"correctAnswers": ["piano", "keyboard"],
-			},
-		},
-	}
-}
+rawQuizData: Dict[str, Dict[str, Any]] = {}
 
 quizData: Dict[str, QuizEntry] = {key: QuizEntry.fromRaw(val) for key, val in rawQuizData.items()}
 

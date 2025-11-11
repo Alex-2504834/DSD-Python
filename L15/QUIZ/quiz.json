@@ -124,5 +124,110 @@
         "correctAnswers": ["C"]
       }
     }
+  },
+  "eurovision2025": {
+    "name": "Eurovision 2025 Quiz",
+    "questions": {
+      "1": {
+        "type": "multiple",
+        "question": "<bold>Which song title is NOT from a Eurovision 2025 song?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Kant</>",
+          "B": "<colour:#ff66c4>Maman</>",
+          "C": "<colour:#90ee90>What The Hell Just Happened?</>",
+          "D": "<colour:#ffa24c>Deslocado</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "2": {
+        "type": "multiple",
+        "question": "<bold>When did the juries vote for the Grand Final in Eurovision 2025?</>",
+        "options": {
+          "A": "<colour:#00d2ff>The evening before the Grand Final</>",
+          "B": "<colour:#ff66c4>During the Grand Final, right after each country has peformed</>",
+          "C": "<colour:#90ee90>During the Grand Final, after all the countries have preformed</>",
+          "D": "<colour:#ffa24c>There was no juries 2025</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "3": {
+        "type": "multiple",
+        "question": "<bold>How many countries participated in Eurovision 2025?</>",
+        "options": {
+          "A": "<colour:#00d2ff>35</>",
+          "B": "<colour:#ff66c4>37</>",
+          "C": "<colour:#90ee90>39</>",
+          "D": "<colour:#ffa24c>41</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "4": {
+        "type": "multiple",
+        "question": "<bold>Italy's song for Eurovision 2025 is called ____</>",
+        "options": {
+          "A": "<colour:#00d2ff>Tutta l'Italia</>",
+          "B": "<colour:#ff66c4>Zitti e buoni</>",
+          "C": "<colour:#90ee90>Quella diva</>",
+          "D": "<colour:#ffa24c>Volevo essere un duro</>"
+        },
+        "correctAnswers": ["D"]
+      },
+      "5": {
+        "type": "multiple",
+        "question": "<bold>Which sentence about Eurovision 2025 is True?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Poland's song is called \"Mila\"</>",
+          "B": "<colour:#ff66c4>Bulgaria, Moldova and Hungary did not participate</>",
+          "C": "<colour:#90ee90>Montenegro</>",
+          "D": "<colour:#ffa24c>Yuval Raphael has participated in Eurovision before 2025</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "6": {
+        "type": "multiple",
+        "question": "<bold>In which venue was Eurovision 2025 held?</>",
+        "options": {
+          "A": "<colour:#00d2ff>St. Jakobshalle</>",
+          "B": "<colour:#ff66c4>Pala Olimpico</>",
+          "C": "<colour:#90ee90>Ahoy Arena</>",
+          "D": "<colour:#ffa24c>Altice Arena</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "7": {
+        "type": "multiple",
+        "question": "<bold>Which sentence about ESC 2025 is False?</>",
+        "options": {
+          "A": "<colour:#00d2ff>Emmy from Norway represented Ireland</>",
+          "B": "<colour:#ff66c4>Sissal from Belgium represented Denmark</>",
+          "C": "<colour:#90ee90>Gabry Ponte from Italy represented San Marino</>",
+          "D": "<colour:#ffa24c>KAJ from Finland represented Sweden</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "8": {
+        "type": "multiple",
+        "question": "<bold>Eurovision was held in Switzerland for the ____ time</>",
+        "options": {
+          "A": "<colour:#00d2ff>First</>",
+          "B": "<colour:#ff66c4>Second</>",
+          "C": "<colour:#90ee90>Third</>",
+          "D": "<colour:#ffa24c>Fourth</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "9": {
+        "type": "multiple",
+        "question": "<bold>Who is Go-Jo?</>",
+        "options": {
+          "A": "<colour:#00d2ff>The official Eurovision Mascot</>",
+          "B": "<colour:#ff66c4>A rapper who represented Czechia</>",
+          "C": "<colour:#90ee90>A singer who represented Australia</>",
+          "D": "<colour:#ffa24c>The winner of Festival da Canção 2025</>",
+          "E": "<colour:#ffa24c>None of the above</>"
+        },
+        "correctAnswers": ["C"]
+      }
+    }
   }
 }
