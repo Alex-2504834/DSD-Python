@@ -8,11 +8,11 @@ import json
 import pathlib
 
 from dataclasses import dataclass, field
-#? why do are these not accessable by defualt, wha the bjnfdjnb python, thought i was going insane
+#? why are these not accessable by defualt, wha the bjnfdjnb python, thought i was going insane
 from typing import Dict, List, Any, Tuple, Optional
 
 #? path to the json (full path)
-bigJsonPath: str = "DSD-Python/L15/QUIZ/quiz.json"
+bigJsonPath: str = "L15/QUIZ/quiz.json"
 
 #?Whole lot of helpers
 def clearConsoleScreen() -> None:
@@ -187,9 +187,9 @@ def normalizeRawQuestions(rawQuestions: Any) -> Dict[int, QuestionData]:
 
 	if isinstance(rawQuestions, list):
 		out = {}
-		for idx, rawVal in enumerate(rawQuestions, start=1):
-			validateRawQuestion(rawVal, context=f"question {idx}")
-			out[idx] = QuestionData.fromRaw(rawVal)
+		for index, rawVal in enumerate(rawQuestions, start=1):
+			validateRawQuestion(rawVal, context=f"question {index}")
+			out[index] = QuestionData.fromRaw(rawVal)
 		return out
 
 	raise ValueError("The 'questions' field must be a dict or a list.")
@@ -223,10 +223,10 @@ def loadBigJsonFileOnce(path: str) -> Dict[str, QuizEntry]:
 		return {}
 
 	try:
-		with jsonPath.open("r", encoding="utf-8") as f:
-			rawTop = json.load(f)
-	except json.JSONDecodeError as exc:
-		print(formatTextColour(f"Bad JSON in {path}: {exc}", "#ff0000"))
+		with jsonPath.open("r", encoding="utf-8") as file:
+			rawTop = json.load(file)
+	except json.JSONDecodeError as exception:
+		print(formatTextColour(f"Bad JSON in {path}: {exception}", "#ff0000"))
 		return {}
 
 	loaded: Dict[str, QuizEntry] = {}
@@ -237,8 +237,8 @@ def loadBigJsonFileOnce(path: str) -> Dict[str, QuizEntry]:
 				validateRawQuiz(rawQuiz, context=f"quiz '{key}'")
 				entry = QuizEntry.fromRaw(rawQuiz)
 				loaded[key] = entry
-			except Exception as e:
-				print(formatTextColour(f"Skipping {key}: {e}", "#ff0000"))
+			except Exception as error:
+				print(formatTextColour(f"Skipping {key}: {error}", "#ff0000"))
 		return loaded
 
 	if isinstance(rawTop, list):
@@ -250,8 +250,8 @@ def loadBigJsonFileOnce(path: str) -> Dict[str, QuizEntry]:
 				autoKey = slugifyKeyFromName(entry.name, existingKeys)
 				loaded[autoKey] = entry
 				existingKeys.add(autoKey)
-			except Exception as e:
-				print(formatTextColour(f"Skipping quiz at index {index}: {e}", "#ff0000"))
+			except Exception as error:
+				print(formatTextColour(f"Skipping quiz at index {index}: {error}", "#ff0000"))
 		return loaded
 
 	print(formatTextColour("JSON must be an object or an array of quizzes.", "#ff0000"))
@@ -423,7 +423,7 @@ def showQuizSummary(quizEntry: QuizEntry) -> None:
 		print(f"Your answer: {userAnswers}")
 		print(f"Correct answer(s): {correctAnswers}")
 		print(status)
-		print("-" * 35)
+		print("═" * 35)
 
 	input("\nPress Enter to exit: ")
 
