@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Any, Tuple, Optional
 
 #? path to the json (full path)
-bigJsonPath: str = "/home/hyper/Documents/College/GitHub/DSD-Python/L15/QUIZ/quiz.json"
+bigJsonPath: str = "DSD-Python/L15/QUIZ/quiz.json"
 
 #?Whole lot of helpers
 def clearConsoleScreen() -> None:
@@ -217,13 +217,13 @@ def slugifyKeyFromName(name: str, existing: set[str]) -> str:
 	return candidate
 
 def loadBigJsonFileOnce(path: str) -> Dict[str, QuizEntry]:
-	p = pathlib.Path(path)
-	if not p.exists() or not p.is_file():
+	jsonPath = pathlib.Path(path)
+	if not jsonPath.exists() or not jsonPath.is_file():
 		#? not fatal, we just load nothing and keep the built-ins
 		return {}
 
 	try:
-		with p.open("r", encoding="utf-8") as f:
+		with jsonPath.open("r", encoding="utf-8") as f:
 			rawTop = json.load(f)
 	except json.JSONDecodeError as exc:
 		print(formatTextColour(f"Bad JSON in {path}: {exc}", "#ff0000"))
@@ -243,15 +243,15 @@ def loadBigJsonFileOnce(path: str) -> Dict[str, QuizEntry]:
 
 	if isinstance(rawTop, list):
 		existingKeys: set[str] = set()
-		for idx, rawQuiz in enumerate(rawTop, start=1):
+		for index, rawQuiz in enumerate(rawTop, start=1):
 			try:
-				validateRawQuiz(rawQuiz, context=f"quiz index {idx}")
+				validateRawQuiz(rawQuiz, context=f"quiz index {index}")
 				entry = QuizEntry.fromRaw(rawQuiz)
 				autoKey = slugifyKeyFromName(entry.name, existingKeys)
 				loaded[autoKey] = entry
 				existingKeys.add(autoKey)
 			except Exception as e:
-				print(formatTextColour(f"Skipping quiz at index {idx}: {e}", "#ff0000"))
+				print(formatTextColour(f"Skipping quiz at index {index}: {e}", "#ff0000"))
 		return loaded
 
 	print(formatTextColour("JSON must be an object or an array of quizzes.", "#ff0000"))
@@ -269,8 +269,6 @@ def mergeQuizzesInPlace(source: Dict[str, QuizEntry], target: Dict[str, QuizEntr
 		else:
 			target[key] = entry
 			existing.add(key)
-
-#?built in quiz, this can be nuked later one maybe
 
 rawQuizData: Dict[str, Dict[str, Any]] = {}
 
@@ -438,8 +436,8 @@ def main() -> None:
 		print(formatTextColour(f"Loaded {len(loaded)} quiz(es) from {bigJsonPath}", "#00d26a"))
 		time.sleep(0.7)
 	else:
-		#? either no file or bad json, but we still run with built-ins
-		pass
+		print(formatBold((formatTextColour("No JSON loaded", "#ff0000"))))
+		return
 
 	print(formatBold(formatUnderline(formatTextColour("Welcome To The Quiz Thing\n", "#fcba03"))))
 	printAllQuizInformation()
