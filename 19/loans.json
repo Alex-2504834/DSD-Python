@@ -1,0 +1,20 @@
+{
+    "1": {
+        "student_name": "Alex",
+        "student_id": "S12345",
+        "device_type": "Laptop",
+        "device_id": "L-001",
+        "date_out": "2025-11-24",
+        "due_back": "2025-12-01",
+        "returned": "False"
+    },
+    "2": {
+        "student_name": "Alex",
+        "student_id": "S12345",
+        "device_type": "Laptop",
+        "device_id": "L-001",
+        "date_out": "2025-11-24",
+        "due_back": "2025-12-01",
+        "returned": "False"
+    }
+}
