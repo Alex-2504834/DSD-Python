@@ -9,7 +9,34 @@
         "returned": "False"
     },
     "2": {
-        "student_name": "Alex",
+        "student_name": "Connor",
+        "student_id": "S12345",
+        "device_type": "Laptop",
+        "device_id": "L-001",
+        "date_out": "2025-11-24",
+        "due_back": "2025-12-01",
+        "returned": "False"
+    },
+    "3": {
+        "student_name": "Kye",
+        "student_id": "S12345",
+        "device_type": "Laptop",
+        "device_id": "L-001",
+        "date_out": "2025-11-24",
+        "due_back": "2025-12-01",
+        "returned": "False"
+    },
+    "4": {
+        "student_name": "Thomas",
+        "student_id": "S12345",
+        "device_type": "Laptop",
+        "device_id": "L-001",
+        "date_out": "2025-11-24",
+        "due_back": "2025-12-01",
+        "returned": "False"
+    },
+    "5": {
+        "student_name": "Sam",
         "student_id": "S12345",
         "device_type": "Laptop",
         "device_id": "L-001",

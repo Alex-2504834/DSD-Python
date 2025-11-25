@@ -2,6 +2,8 @@ import datetime
 import json
 from pathlib import Path
 from dataclasses import dataclass
+import os
+import time
 
 jsonPath = Path("19\\loans.json")
 
@@ -36,6 +38,9 @@ class Colour:
         hexColour = hexColour.lstrip("#")
         red, green, blue = (int(hexColour[i : i + 2], 16) for i in (0, 2, 4))
         return f"\x1b[38;2;{red};{green};{blue}m"
+
+def clear() -> None:
+	os.system("cls" if os.name == "nt" else "clear")
 
 
 def loadDataFromDisk(filePath: Path) -> dict[int, dict[str, str]]:
@@ -73,7 +78,6 @@ def updateJsonData(jsonData, data, loanID):
     except:
         print(f"{Colour.RED}That loan ID doesnt exist{Colour.END}")
 
-jsonData = loadDataFromDisk(jsonPath)
 
 
 temp = {
@@ -87,9 +91,45 @@ temp = {
     }
 
 
-updateJsonData(jsonData, temp, 5)
+#updateJsonData(jsonData, temp, 5)
+#
+#addToJsonData(jsonData, temp)
+#
+#saveDataToDisk(jsonPath, jsonData)
+#print(loadDataFromDisk(jsonPath))
 
-addToJsonData(jsonData, temp)
+def formUpdateData():
+    pass
 
-saveDataToDisk(jsonPath, jsonData)
-print(loadDataFromDisk(jsonPath))
+def getEntrie():
+    running = True
+    while running:
+        if (userInput := input("Enter Student ID or Name: ").capitalize()) != "":
+            for index in jsonData:
+                if jsonData[index]["student_name"] == userInput or jsonData[index]["student_id"] == userInput:
+
+                    print(jsonData[index])
+                else:
+                    print(f"{Colour.RED}Could not find student with {userInput} for name or ID{Colour.END}")
+        else:
+            clear()
+            print(f"{Colour.RED}Please Enter a name or student ID{Colour.END}")
+            time.sleep(0.5)
+            clear()
+
+def handleUpdate():
+    clear()
+    
+jsonData = loadDataFromDisk(jsonPath)
+def main () -> None:
+    print("══Laptop Loans══")
+    print(f"The list contains {len(jsonData)} entries")
+
+    getEntrie()
+
+if __name__ == "__main__":
+    try:
+        main()
+
+    except KeyboardInterrupt:
+        print("Bye")
