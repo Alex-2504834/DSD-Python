@@ -101,31 +101,42 @@ temp = {
 def formUpdateData():
     pass
 
-def getEntrie():
+def getEntrieFromInput():
     running = True
     while running:
         if (userInput := input("Enter Student ID or Name: ").capitalize()) != "":
             for index in jsonData:
-                if jsonData[index]["student_name"] == userInput or jsonData[index]["student_id"] == userInput:
+                if (jsonData[index]["student_name"] == userInput) or (jsonData[index]["student_id"] == userInput):
+                    return(jsonData[index])
+            print(f"{Colour.RED}Could not find student with name or id of {userInput}{Colour.END}")
+            time.sleep(1)
+            clear()
 
-                    print(jsonData[index])
-                else:
-                    print(f"{Colour.RED}Could not find student with {userInput} for name or ID{Colour.END}")
         else:
             clear()
             print(f"{Colour.RED}Please Enter a name or student ID{Colour.END}")
-            time.sleep(0.5)
+            time.sleep(1)
             clear()
 
 def handleUpdate():
     clear()
     
+
+def temp2():
+    print("r"*2)
+    nameLength = {}
+    for index in jsonData:
+        nameLength[jsonData[index]["student_name"]] = {"length":len(jsonData[index]["student_name"]) }
+
+    maxLength = (nameLength[max(nameLength)])
+    print(maxLength)
 jsonData = loadDataFromDisk(jsonPath)
 def main () -> None:
     print("══Laptop Loans══")
     print(f"The list contains {len(jsonData)} entries")
+    temp2()
 
-    getEntrie()
+    getEntrieFromInput()
 
 if __name__ == "__main__":
     try:

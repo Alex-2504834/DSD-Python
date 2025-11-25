@@ -10,7 +10,7 @@
     },
     "2": {
         "student_name": "Connor",
-        "student_id": "S12345",
+        "student_id": "S23451",
         "device_type": "Laptop",
         "device_id": "L-001",
         "date_out": "2025-11-24",
@@ -19,7 +19,7 @@
     },
     "3": {
         "student_name": "Kye",
-        "student_id": "S12345",
+        "student_id": "S34512",
         "device_type": "Laptop",
         "device_id": "L-001",
         "date_out": "2025-11-24",
@@ -28,7 +28,7 @@
     },
     "4": {
         "student_name": "Thomas",
-        "student_id": "S12345",
+        "student_id": "S45123",
         "device_type": "Laptop",
         "device_id": "L-001",
         "date_out": "2025-11-24",
@@ -37,7 +37,7 @@
     },
     "5": {
         "student_name": "Sam",
-        "student_id": "S12345",
+        "student_id": "S51234",
         "device_type": "Laptop",
         "device_id": "L-001",
         "date_out": "2025-11-24",
