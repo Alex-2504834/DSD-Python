@@ -31,4 +31,5 @@ def taskTwo():
             for lines in file:
                 print(lines.strip())
 
-taskTwo()
+if __name__ == "__main__":
+    taskTwo()
