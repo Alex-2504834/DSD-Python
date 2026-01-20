@@ -47,6 +47,13 @@ def taskFour():
 def taskFive():
     csvPath = "L28 - Pandas/students.csv"
     data = pd.read_csv(csvPath)
-    print(data.rank())
+    print(data)
 
 taskFive()
+
+                               #or tuple here #or tuple here 
+mobs = {
+    {"mobID": 0, "mobPostion": ["x","y","z"], "mobColour": ["r","g","b"], "mobParentID": 0},
+    {"mobID": 1, "mobPostion": ["x","y","z"], "mobColour": ["r","g","b"], "mobParentID": 0},
+    {"mobID": 1, "mobPostion": ["x","y","z"], "mobColour": ["r","g","b"], "mobParentID": 1},
+    }
