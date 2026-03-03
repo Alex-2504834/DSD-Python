@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Any, Tuple, Optional
 
 #? path to the json (full path)
-bigJsonPath: str = "L15/QUIZ/quiz.json"
+bigJsonPath: str = "L16 - Data Structures - Dictionary (Scenario)\quiz.json"
 
 #?Whole lot of helpers
 def clearConsoleScreen() -> None:

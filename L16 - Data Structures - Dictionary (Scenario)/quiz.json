@@ -346,5 +346,76 @@
         "correctAnswers": ["A"]
       }
     }
+  },
+    "math": {
+    "name": "<colour:#ffadad>Math Quiz</>",
+    "questions": {
+      "1": {
+        "type": "multiple",
+        "question": "<bold>Solve: (7+5i) - (2+3i)</>",
+        "options": {
+          "A": "<colour:#00d2ff>5-2i</>",
+          "B": "<colour:#ff66c4>5+2i</>",
+          "C": "<colour:#90ee90>12+8i</>",
+          "D": "<colour:#ffa24c>7</>"
+        },
+        "correctAnswers": ["B"]
+      },
+      "2": {
+        "type": "multiple",
+        "question": "<bold>Solve: (2+3i)(3+4i)</>",
+        "options": {
+          "A": "<colour:#00d2ff>6-12i</>",
+          "B": "<colour:#ff66c4>4+17i</>",
+          "C": "<colour:#90ee90>2-12i</>",
+          "D": "<colour:#ffa24c>-6+17i</>"
+        },
+        "correctAnswers": ["D"]
+      },
+      "3": {
+        "type": "multiple",
+        "question": "<bold>Simplify: i^13</>",
+        "options": {
+          "A": "<colour:#00d2ff>i</>",
+          "B": "<colour:#ff66c4>-i</>",
+          "C": "<colour:#90ee90>-1</>",
+          "D": "<colour:#ffa24c>1</>"
+        },
+        "correctAnswers": ["A"]
+      },
+      "4": {
+        "type": "multiple",
+        "question": "<bold>Simplify: (3-4i)^2</>",
+        "options": {
+          "A": "<colour:#00d2ff>25-24i</>",
+          "B": "<colour:#ff66c4>9-16i</>",
+          "C": "<colour:#90ee90>-7-24i</>",
+          "D": "<colour:#ffa24c>-i</>"
+        },
+        "correctAnswers": ["C"]
+      },
+      "5": {
+        "type": "multiple",
+        "question": "<bold>Simplify: (2-5i)(2+5i)</>",
+        "options": {
+          "A": "<colour:#00d2ff>4+25i</>",
+          "B": "<colour:#ff66c4>4-25i</>",
+          "C": "<colour:#90ee90>-16</>",
+          "D": "<colour:#ffa24c>29</>"
+        },
+        "correctAnswers": ["D"]
+      },
+      "6": {
+        "type": "multiple",
+        "question": "<bold>Simplify: i^27</>",
+        "options": {
+          "A": "<colour:#00d2ff>1</>",
+          "B": "<colour:#ff66c4>-i</>",
+          "C": "<colour:#90ee90>i</>",
+          "D": "<colour:#ffa24c>-1</>"
+        },
+        "correctAnswers": ["B"]
+      }
+    }
   }
 }
