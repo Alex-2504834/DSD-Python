@@ -10,14 +10,6 @@ csvPath = "L36 -/Game_Shop_Sales_300_Rows.csv"
 def createDataFrame(path: Path) -> pl.DataFrame:
     return pl.read_csv(source=path, null_values="")
 
-def printColumnNames(data: pl.DataFrame) -> None:
-    print("Column names:")
-    for column in data.columns:
-        print(column)
-
-def checkForMissingValues(data: pl.DataFrame):
-    pass
-
 def main() -> None:
 
     mainApp = Main()
@@ -268,8 +260,9 @@ class Main(ctk.CTk):
             ],
         )
         self.mainTable.pack(fill="both", expand=True, padx=12, pady=12)
-        self.load(createDataFrame(csvPath))
-    def load(self, dataFrame: pl.DataFrame):
+        self.loadViewData(createDataFrame(csvPath))
+
+    def loadViewData(self, dataFrame: pl.DataFrame):
         items: List[Dict[str, str]] = []
 
         for row in dataFrame.to_dict():
@@ -284,6 +277,7 @@ class Main(ctk.CTk):
                         "totalRevenue": str(dataFrame.to_dict()["Total Revenue (£)"][index] or "")
                     }
                 )
+
         self.mainTable.setItems(items)
 
 if __name__ == "__main__":
