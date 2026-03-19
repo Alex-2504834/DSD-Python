@@ -3,16 +3,18 @@ import time
 import random
 import msvcrt
 import shutil
+from typing import TypeAlias
 
-mazeSizeX, mazeSizeY = 100, 20
+mazeSizeX: int = 100
+mazeSizeY: int = 20
 
-wallChars = "█"
-playerChars = "☻"
-goalChars = "G"
-pathChar = "░"
-visitedChar = " "
+wallChars: str = "█"
+playerChars: str = "☻"
+goalChars: str = "G"
+pathChar: str = "░"
+visitedChar: str = " "
 
-goldGradient = [
+goldGradient: list[str] = [
     "#FFF4B0",
     "#FFE082",
     "#FFD54F",
@@ -20,7 +22,7 @@ goldGradient = [
     "#C98900",
 ]
 
-bigText = {
+bigText: dict[str, list[str]] = {
     "Y": ["█   █", " █ █ ", "  █  ", "  █  ", "  █  "],
     "O": [" ███ ", "█   █", "█   █", "█   █", " ███ "],
     "U": ["█   █", "█   █", "█   █", "█   █", " ███ "],
@@ -30,26 +32,32 @@ bigText = {
     " ": ["   ", "   ", "   ", "   ", "   "],
 }
 
-def createMaze(sizeX, sizeY):
-    width = sizeX * 2 + 1
-    height = sizeY * 2 + 1
+Cell: TypeAlias = str
+Maze: TypeAlias = list[list[Cell]]
+Position: TypeAlias = tuple[int, int]
+DirectionMap: TypeAlias = dict[str, Position]
 
-    maze = [[wallChars for _ in range(width)] for _ in range(height)]
 
-    def carve(x, y):
+def createMaze(sizeX: int, sizeY: int) -> Maze:
+    width: int = sizeX * 2 + 1
+    height: int = sizeY * 2 + 1
+
+    maze: Maze = [[wallChars for _ in range(width)] for _ in range(height)]
+
+    def carve(x: int, y: int) -> None:
         maze[y][x] = pathChar
 
-        directions = [(0, -2), (2, 0), (0, 2), (-2, 0)]
+        directions: list[Position] = [(0, -2), (2, 0), (0, 2), (-2, 0)]
         random.shuffle(directions)
 
         for directionX, directionY in directions:
-            newX = x + directionX
-            newY = y + directionY
+            newX: int = x + directionX
+            newY: int = y + directionY
 
             if 1 <= newX < width - 1 and 1 <= newY < height - 1:
                 if maze[newY][newX] == wallChars:
-                    wallX = x + directionX // 2
-                    wallY = y + directionY // 2
+                    wallX: int = x + directionX // 2
+                    wallY: int = y + directionY // 2
 
                     maze[wallY][wallX] = pathChar
                     carve(newX, newY)
@@ -63,23 +71,26 @@ def createMaze(sizeX, sizeY):
 def clear() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
-#?Love these codes
-def moveCursorTopLeft():
+
+def moveCursorTopLeft() -> None:
     print("\033[H", end="")
 
-def hideCursor():
+
+def hideCursor() -> None:
     print("\033[?25l", end="")
 
-def showCursor():
+
+def showCursor() -> None:
     print("\033[?25h", end="")
 
-def colourText(textString, hexColour):
+
+def colourText(textString: str, hexColour: str) -> str:
     hexColour = hexColour.lstrip("#")
     red, green, blue = (int(hexColour[i:i + 2], 16) for i in (0, 2, 4))
     return f"\x1b[38;2;{red};{green};{blue}m{textString}\033[0m"
 
 
-def colourCell(cell):
+def colourCell(cell: str) -> str:
     match cell:
         case c if c in wallChars:
             return colourText(cell, "#8B8B8B")
@@ -91,34 +102,33 @@ def colourCell(cell):
             return colourText(cell, "#757575")
         case _:
             return cell
-        
-def getMazeDisplaySize(sizeX, sizeY):
-    mazeWidth = sizeX * 2 + 1
-    mazeHeight = sizeY * 2 + 1
+def getMazeDisplaySize(sizeX: int, sizeY: int) -> tuple[int, int]:
+    mazeWidth: int = sizeX * 2 + 1
+    mazeHeight: int = sizeY * 2 + 1
     return mazeWidth, mazeHeight
 
-def getMaxMazeSizeForTerminal():
+def getMaxMazeSizeForTerminal() -> tuple[int, int, int, int]:
     terminalSize = shutil.get_terminal_size(fallback=(80, 24))
-    terminalWidth = terminalSize.columns
-    terminalHeight = terminalSize.lines
+    terminalWidth: int = terminalSize.columns
+    terminalHeight: int = terminalSize.lines
 
-    extraLines = 2
+    extraLines: int = 2
 
-    maxDisplayWidth = terminalWidth
-    maxDisplayHeight = terminalHeight - extraLines
+    maxDisplayWidth: int = terminalWidth
+    maxDisplayHeight: int = terminalHeight - extraLines
 
-    maxSizeX = (maxDisplayWidth - 2) // 2
-    maxSizeY = (maxDisplayHeight - 2) // 2
+    maxSizeX: int = (maxDisplayWidth - 2) // 2
+    maxSizeY: int = (maxDisplayHeight - 2) // 2
 
     return maxSizeX, maxSizeY, terminalWidth, terminalHeight
 
 
-def askToShrinkMaze(sizeX, sizeY):
+def askToShrinkMaze(sizeX: int, sizeY: int) -> tuple[int | None, int | None]:
     mazeWidth, mazeHeight = getMazeDisplaySize(sizeX, sizeY)
     maxSizeX, maxSizeY, terminalWidth, terminalHeight = getMaxMazeSizeForTerminal()
 
-    extraLines = 2
-    fits = mazeWidth <= terminalWidth and (mazeHeight + extraLines) <= terminalHeight
+    extraLines: int = 2
+    fits: bool = mazeWidth <= terminalWidth and (mazeHeight + extraLines) <= terminalHeight
 
     if fits:
         return sizeX, sizeY
@@ -137,7 +147,7 @@ def askToShrinkMaze(sizeX, sizeY):
     showCursor()
     try:
         while True:
-            choice = input(colourText("Shrink maze to fit terminal? (Y/N): ", "#a9fcff")).strip().upper()
+            choice: str = input(colourText("Shrink maze to fit terminal? (Y/N): ", "#a9fcff")).strip().upper()
 
             if choice == "Y":
                 return maxSizeX, maxSizeY
@@ -149,19 +159,19 @@ def askToShrinkMaze(sizeX, sizeY):
         hideCursor()
 
 
-def resolveMazeSize(sizeX, sizeY):
+def resolveMazeSize(sizeX: int, sizeY: int) -> tuple[int | None, int | None]:
     moveCursorTopLeft()
     clear()
     return askToShrinkMaze(sizeX, sizeY)
 
 
-def displayMaze(maze):
+def displayMaze(maze: Maze) -> None:
     for row in maze:
         print("".join(colourCell(cell) for cell in row))
     print()
 
 
-def setPlayerPos(player, maze, lastPos, goalPos):
+def setPlayerPos(player: Position, maze: Maze, lastPos: Position, goalPos: Position) -> Maze:
     if lastPos == goalPos:
         maze[lastPos[1]][lastPos[0]] = goalChars
     else:
@@ -171,51 +181,50 @@ def setPlayerPos(player, maze, lastPos, goalPos):
     return maze
 
 
-def movePlayer(player, directionX, directionY):
-    return (player[0] + directionX, player[1] + directionY)
+def movePlayer(player: Position, directionX: int, directionY: int) -> Position:
+    return player[0] + directionX, player[1] + directionY
 
 
-def canMove(player, maze, directionX, directionY):
-    newX = player[0] + directionX
-    newY = player[1] + directionY
+def canMove(player: Position, maze: Maze, directionX: int, directionY: int) -> bool:
+    newX: int = player[0] + directionX
+    newY: int = player[1] + directionY
     return maze[newY][newX] != wallChars
 
 
-def buildBigText(text):
-    rows = [""] * 5
+def buildBigText(text: str) -> list[str]:
+    rows: list[str] = [""] * 5
 
     for char in text:
-        pattern = bigText.get(char, bigText[" "])
+        pattern: list[str] = bigText.get(char, bigText[" "])
         for i in range(5):
             rows[i] += pattern[i] + "  "
 
     return rows
 
 
-def scaleTextRows(rows, scale):
-    scaledRows = []
+def scaleTextRows(rows: list[str], scale: int) -> list[str]:
+    scaledRows: list[str] = []
 
     for row in rows:
-        expandedRow = "".join(char * scale for char in row)
+        expandedRow: str = "".join(char * scale for char in row)
         for _ in range(scale):
             scaledRows.append(expandedRow)
 
     return scaledRows
 
-#?Hm complex
-def drawWinBanner(maze):
-    textRows = buildBigText("YOU WIN")
+def drawWinBanner(maze: Maze) -> bool:
+    textRows: list[str] = buildBigText("YOU WIN")
 
-    mazeHeight = len(maze)
-    mazeWidth = len(maze[0])
+    mazeHeight: int = len(maze)
+    mazeWidth: int = len(maze[0])
 
-    targetWidth = int(mazeWidth * 0.6)
-    baseWidth = max(len(row) for row in textRows)
-    scale = max(1, targetWidth // baseWidth)
+    targetWidth: int = int(mazeWidth * 0.6)
+    baseWidth: int = max(len(row) for row in textRows)
+    scale: int = max(1, targetWidth // baseWidth)
 
-    scaledRows = scaleTextRows(textRows, scale)
-    bannerHeight = len(scaledRows)
-    bannerWidth = max(len(row) for row in scaledRows)
+    scaledRows: list[str] = scaleTextRows(textRows, scale)
+    bannerHeight: int = len(scaledRows)
+    bannerWidth: int = max(len(row) for row in scaledRows)
 
     while (bannerWidth > mazeWidth - 2 or bannerHeight > mazeHeight - 2) and scale > 1:
         scale -= 1
@@ -226,22 +235,22 @@ def drawWinBanner(maze):
     if bannerWidth > mazeWidth - 2 or bannerHeight > mazeHeight - 2:
         return False
 
-    startY = (mazeHeight - bannerHeight) // 2
-    startX = (mazeWidth - bannerWidth) // 2
+    startY: int = (mazeHeight - bannerHeight) // 2
+    startX: int = (mazeWidth - bannerWidth) // 2
 
-    padding = max(1, scale)
+    padding: int = max(1, scale)
 
-    clearTop = max(1, startY - padding)
-    clearBottom = min(mazeHeight - 1, startY + bannerHeight + padding)
-    clearLeft = max(1, startX - padding)
-    clearRight = min(mazeWidth - 1, startX + bannerWidth + padding)
+    clearTop: int = max(1, startY - padding)
+    clearBottom: int = min(mazeHeight - 1, startY + bannerHeight + padding)
+    clearLeft: int = max(1, startX - padding)
+    clearRight: int = min(mazeWidth - 1, startX + bannerWidth + padding)
 
     for y in range(clearTop, clearBottom):
         for x in range(clearLeft, clearRight):
             maze[y][x] = visitedChar
 
     for rowIndex, row in enumerate(scaledRows):
-        colour = goldGradient[min(rowIndex, len(goldGradient) - 1)]
+        colour: str = goldGradient[min(rowIndex, len(goldGradient) - 1)]
         for colIndex, char in enumerate(row):
             if char != " ":
                 maze[startY + rowIndex][startX + colIndex] = colourText(char, colour)
@@ -249,7 +258,7 @@ def drawWinBanner(maze):
     return True
 
 
-def showWinScreen(maze):
+def showWinScreen(maze: Maze) -> None:
     moveCursorTopLeft()
 
     if drawWinBanner(maze):
@@ -259,11 +268,11 @@ def showWinScreen(maze):
         print(colourText("YOU WIN", "#FFCA3A"))
 
 
-def askPlayAgain():
+def askPlayAgain() -> bool:
     showCursor()
     try:
         while True:
-            choice = input(colourText("Play again? (Y/N): ", "#a9fcff")).strip().upper()
+            choice: str = input(colourText("Play again? (Y/N): ", "#a9fcff")).strip().upper()
 
             if choice == "Y":
                 return True
@@ -275,13 +284,13 @@ def askPlayAgain():
         hideCursor()
 
 
-def playRound(sizeX, sizeY):
-    mazeMap = createMaze(sizeX, sizeY)
-    player = (1, 1)
-    goalPos = (len(mazeMap[0]) - 2, len(mazeMap) - 2)
-    lastPos = player
+def playRound(sizeX: int, sizeY: int) -> bool:
+    mazeMap: Maze = createMaze(sizeX, sizeY)
+    player: Position = (1, 1)
+    goalPos: Position = (len(mazeMap[0]) - 2, len(mazeMap) - 2)
+    lastPos: Position = player
 
-    directions = {
+    directions: DirectionMap = {
         "W": (0, -1),
         "D": (1, 0),
         "S": (0, 1),
@@ -292,11 +301,11 @@ def playRound(sizeX, sizeY):
 
     while True:
         moveCursorTopLeft()
-        maze = setPlayerPos(player=player, maze=mazeMap, lastPos=lastPos, goalPos=goalPos)
-        displayMaze(maze)
+        mazeMap = setPlayerPos(player=player, maze=mazeMap, lastPos=lastPos, goalPos=goalPos)
+        displayMaze(mazeMap)
         print("Use WASD to move. Press Q to quit.")
 
-        playerInput = msvcrt.getch().decode("utf-8", errors="ignore").upper()
+        playerInput: str = msvcrt.getch().decode("utf-8", errors="ignore").upper()
 
         if playerInput == "Q":
             return False
@@ -304,21 +313,21 @@ def playRound(sizeX, sizeY):
         if playerInput in directions:
             directionX, directionY = directions[playerInput]
 
-            if canMove(player, maze, directionX, directionY):
+            if canMove(player, mazeMap, directionX, directionY):
                 lastPos = player
                 player = movePlayer(player, directionX, directionY)
 
                 if player == goalPos:
-                    maze = setPlayerPos(player=player, maze=mazeMap, lastPos=lastPos, goalPos=goalPos)
-                    showWinScreen(maze)
+                    mazeMap = setPlayerPos(player=player, maze=mazeMap, lastPos=lastPos, goalPos=goalPos)
+                    showWinScreen(mazeMap)
                     return True
 
         time.sleep(0)
 
 
 def main() -> None:
-    requestedSizeX = mazeSizeX
-    requestedSizeY = mazeSizeY
+    requestedSizeX: int = mazeSizeX
+    requestedSizeY: int = mazeSizeY
 
     sizeX, sizeY = resolveMazeSize(requestedSizeX, requestedSizeY)
 
@@ -327,7 +336,7 @@ def main() -> None:
         return
 
     while True:
-        won = playRound(sizeX, sizeY)
+        won: bool = playRound(sizeX, sizeY)
 
         if not won:
             print(colourText("Exiting...", "#ff6b6b"))
