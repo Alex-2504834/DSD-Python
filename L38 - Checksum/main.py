@@ -7,13 +7,12 @@ def main():
         print(f"{restOfDigit = }")
         print(f"{lastDigit = }")
 
-        temp = ""
+        checkSum = 0
         for index, value in enumerate(restOfDigit):
-            
-            print(index, value)
-
+            checkSum = checkSum + ((index + 1) * int(value))
+        print(checkSum)
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Bye :(")
+        print("\nBye :(")
